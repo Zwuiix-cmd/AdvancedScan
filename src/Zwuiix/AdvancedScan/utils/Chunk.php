@@ -18,44 +18,6 @@ class Chunk
 {
     use SingletonTrait;
 
-    public function scanInventory(): void
-    {
-        $config=new Config(Server::getInstance()->getDataPath()."plugin_data/ASCoreKitmap/datas/economy.json", Config::JSON);
-        foreach ($config->getAll() as $value => $i){
-            $pl=Server::getInstance()->getPlayerByPrefix($value);
-            if(!$pl instanceof Player){
-                $player=Server::getInstance()->getOfflinePlayer($value);
-                $inventory=Chunk::getInstance()->readInventory($player);
-                foreach ($inventory as $item){
-                    if($item instanceof Item){
-                        if($item->getId() == ItemIds::TRIPWIRE_HOOK && $item->getCount() > 32){
-                            Server::getInstance()->getLogger()->info("{$player->getName()} : x{$item->getCount()} ({$item->getCustomName()})");
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public function scanEnderInventory(): void
-    {
-        $config=new Config(Server::getInstance()->getDataPath()."plugin_data/ASCoreKitmap/datas/economy.json", Config::JSON);
-        foreach ($config->getAll() as $value => $i){
-            $pl=Server::getInstance()->getPlayerByPrefix($value);
-            if(!$pl instanceof Player){
-                $player=Server::getInstance()->getOfflinePlayer($value);
-                $inventory=Chunk::getInstance()->readEnderInventory($player);
-                foreach ($inventory as $item){
-                    if($item instanceof Item){
-                        if($item->getId() == ItemIds::TRIPWIRE_HOOK && $item->getCount() > 32){
-                            Server::getInstance()->getLogger()->info("{$player->getName()} : x{$item->getCount()} ({$item->getCustomName()})");
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     public function readEnderInventory(OfflinePlayer $player) : array
     {
         $user=Server::getInstance()->getOfflinePlayerData($player->getName());
