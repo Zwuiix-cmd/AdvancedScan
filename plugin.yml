@@ -1,0 +1,34 @@
+---
+name: AdvancedScan
+api: 4.0.0
+version: 1.0.0
+main: Zwuiix\AdvancedScan\Main
+author: Zwuiix
+permissions:
+  advancedscan:
+    default: op
+    description: Allow usage of all Scan features
+  advancedscan.scan.plugin:
+    default: op
+    description: Allow usage of all Scan features
+  advancedscan.scan.map:
+    default: op
+    description: Allow usage of all Scan features
+  advancedscan.scan.inventory:
+    default: op
+    description: Allow usage of all Scan features
+  advancedscan.scan.enderchest:
+    default: op
+    description: Allow usage of all Scan features
+description: Loaded by FolderPluginLoader
+github: https://github.com/Zwuiix-cmd
+loader:
+  name: FolderPluginLoader
+  main: Zwuiix\Main
+  version: 1.0.0
+  api:
+  - 4.0.0
+  authors:
+  - Zwuiix
+  - pmmp
+...
